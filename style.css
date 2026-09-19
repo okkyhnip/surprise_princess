@@ -1,0 +1,888 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fff7fa;
+    color: #4a3b40;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   OPENING
+===================================================== */
+
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ffe5ef 0%,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #f8dce8 0%,
+            transparent 25%
+        ),
+        #fff7fa;
+
+    transition: 0.8s ease;
+}
+
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-card {
+    width: min(90%, 420px);
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(190, 120, 145, 0.15);
+
+    animation: float 4s ease-in-out infinite;
+}
+
+.small-heart {
+    font-size: 45px;
+
+    color: #e99ab5;
+
+    margin-bottom: 15px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.mini-title {
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color: #a98b95;
+
+    text-transform: uppercase;
+}
+
+.opening-card h1 {
+    margin: 8px 0 15px;
+
+    font-size: 45px;
+
+    font-weight: 600;
+
+    color: #d77d9d;
+}
+
+.opening-card h1 span {
+    font-size: 32px;
+}
+
+.opening-text {
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    color: #8c747c;
+
+    margin-bottom: 25px;
+}
+
+#openBtn {
+    border: none;
+
+    outline: none;
+
+    padding: 13px 25px;
+
+    border-radius: 50px;
+
+    background: #e79ab5;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(215, 125, 157, 0.25);
+
+    transition: 0.3s;
+}
+
+#openBtn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(215, 125, 157, 0.35);
+}
+
+#openBtn:active {
+    transform: scale(0.96);
+}
+
+.hint {
+    margin-top: 18px;
+
+    font-size: 11px;
+
+    color: #bdaab0;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content {
+    display: none;
+
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: auto;
+
+    padding: 40px 20px 80px;
+}
+
+.content.show {
+    display: block;
+
+    animation: appear 1s ease;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    text-align: center;
+
+    padding-top: 20px;
+}
+
+.top-text {
+    margin-bottom: 25px;
+}
+
+.top-text span {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 50px;
+
+    background: #fff;
+
+    color: #bc91a0;
+
+    font-size: 11px;
+
+    box-shadow:
+        0 5px 20px rgba(160, 100, 120, 0.08);
+}
+
+
+/* =====================================================
+   FOTO PRINCESS
+===================================================== */
+
+.photo-section {
+    width: 100%;
+
+    max-width: 430px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.photo-label {
+    margin-bottom: 20px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #b18c99;
+}
+
+
+/* =====================================================
+   FOTO UTAMA
+===================================================== */
+
+.main-photo {
+    position: relative;
+
+    width: 250px;
+
+    height: 310px;
+
+    margin: 0 auto;
+
+    padding: 7px;
+
+    background: #ffffff;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 18px 45px rgba(180, 110, 135, 0.18);
+
+    overflow: hidden;
+
+    transform: rotate(-2deg);
+
+    transition: 0.35s ease;
+}
+
+.main-photo:hover {
+    transform:
+        rotate(0deg)
+        scale(1.03);
+}
+
+.main-photo img {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 19px;
+}
+
+
+/* =====================================================
+   FOTO 2 & FOTO 3
+===================================================== */
+
+.small-photos {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: -18px;
+}
+
+.small-photo {
+    width: 135px;
+
+    height: 150px;
+
+    padding: 6px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 30px rgba(170, 105, 130, 0.16);
+
+    overflow: hidden;
+
+    transition: 0.35s ease;
+}
+
+.small-photo:first-child {
+    transform: rotate(-6deg);
+}
+
+.small-photo:last-child {
+    transform: rotate(6deg);
+}
+
+.small-photo:hover {
+    transform:
+        translateY(-8px)
+        rotate(0deg)
+        scale(1.04);
+
+    z-index: 10;
+}
+
+.small-photo img {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 14px;
+}
+
+
+/* =====================================================
+   JUDUL
+===================================================== */
+
+.hero h1 {
+    margin-top: 30px;
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    color: #d77d9d;
+}
+
+.subtitle {
+    margin-top: 8px;
+
+    color: #a78c95;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+.music-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 30px;
+
+    padding: 15px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px rgba(160, 100, 120, 0.08);
+}
+
+.music-icon {
+    width: 45px;
+
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #fde7ef;
+
+    color: #d77d9d;
+
+    font-size: 22px;
+}
+
+.music-info {
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.music-info span {
+    font-size: 10px;
+
+    color: #b79fa7;
+}
+
+.music-info strong {
+    font-size: 12px;
+
+    color: #705961;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+#musicBtn {
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #e79ab5;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#musicBtn:hover {
+    transform: scale(1.08);
+}
+
+#musicBtn:active {
+    transform: scale(0.94);
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter-card {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 35px rgba(160, 100, 120, 0.07);
+}
+
+.letter-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 11px;
+
+    color: #ba8d9e;
+}
+
+.letter-card h2 {
+    margin-top: 15px;
+
+    font-size: 22px;
+
+    color: #715861;
+}
+
+.letter {
+    margin-top: 18px;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: #fff8fb;
+
+    font-size: 13px;
+
+    line-height: 2;
+
+    color: #7e6970;
+}
+
+.letter p {
+    margin-bottom: 15px;
+}
+
+.letter .last {
+    margin-top: 25px;
+
+    margin-bottom: 3px;
+
+    color: #b17b90;
+
+    font-size: 12px;
+}
+
+.signature {
+    text-align: right;
+
+    color: #d77d9d;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   MEMORY
+===================================================== */
+
+.memory {
+    text-align: center;
+
+    margin-top: 60px;
+}
+
+.section-label {
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #c19ba8;
+}
+
+.memory h2 {
+    margin-top: 10px;
+
+    font-size: 21px;
+
+    line-height: 1.5;
+
+    color: #715861;
+}
+
+.mini-gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.mini-card {
+    padding: 18px 8px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(160, 100, 120, 0.06);
+}
+
+.mini-card span {
+    display: block;
+
+    font-size: 23px;
+
+    color: #e79ab5;
+
+    margin-bottom: 7px;
+}
+
+.mini-card p {
+    font-size: 10px;
+
+    color: #927b83;
+}
+
+
+/* =====================================================
+   ENDING
+===================================================== */
+
+.ending {
+    text-align: center;
+
+    margin-top: 80px;
+}
+
+.big-heart {
+    font-size: 55px;
+
+    color: #e79ab5;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.ending h2 {
+    margin-top: 15px;
+
+    font-size: 20px;
+
+    color: #715861;
+}
+
+.ending p {
+    margin-top: 8px;
+
+    font-size: 12px;
+
+    color: #9c858d;
+}
+
+.ending .from {
+    margin-top: 20px;
+
+    color: #d77d9d;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    font-size: 15px;
+
+    color: #e9a5ba;
+
+    pointer-events: none;
+
+    animation:
+        rise linear forwards;
+
+    z-index: 2000;
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes rise {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .content {
+        padding:
+            35px
+            18px
+            70px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .opening-card {
+        width: 92%;
+
+        padding:
+            40px
+            22px;
+    }
+
+    .opening-card h1 {
+        font-size: 38px;
+    }
+
+
+    /* FOTO UTAMA */
+
+    .main-photo {
+        width: 220px;
+
+        height: 280px;
+    }
+
+
+    /* FOTO KECIL */
+
+    .small-photos {
+        gap: 12px;
+
+        margin-top: -16px;
+    }
+
+    .small-photo {
+        width: 115px;
+
+        height: 130px;
+    }
+
+
+    .hero h1 {
+        margin-top: 28px;
+
+        font-size: 27px;
+    }
+
+
+    .letter-card {
+        padding: 20px;
+    }
+
+}
+
+
+/* =====================================================
+   HP KECIL
+===================================================== */
+
+@media (max-width: 360px) {
+
+    .content {
+        padding-left: 12px;
+
+        padding-right: 12px;
+    }
+
+
+    .main-photo {
+        width: 200px;
+
+        height: 255px;
+    }
+
+
+    .small-photos {
+        gap: 8px;
+    }
+
+
+    .small-photo {
+        width: 105px;
+
+        height: 120px;
+    }
+
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+}
